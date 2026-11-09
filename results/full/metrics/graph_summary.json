@@ -1,0 +1,12 @@
+{
+  "n_nodes": 203769,
+  "n_edges": 234355,
+  "directed": true,
+  "multigraph": false,
+  "duplicate_edges": 0,
+  "self_loops": 0,
+  "is_dag": true,
+  "weak_components": 49,
+  "largest_weak_component": 7880,
+  "strong_components": 203769
+}

@@ -1,0 +1,30 @@
+[project]
+name = "graph-analytics-elliptic"
+version = "0.1.0"
+description = "Analyse de graphe du jeu de données Elliptic (transactions Bitcoin)"
+readme = "README.md"
+requires-python = ">=3.13"
+dependencies = [
+    "networkx",
+    "scipy",
+    "polars",
+    "numpy",
+    "scikit-learn",
+    "matplotlib",
+    "pyyaml",
+    "kagglehub>=1.0.3",
+]
+
+[dependency-groups]
+dev = ["pytest", "ruff"]
+
+[tool.uv]
+package = false  # pas d'installation du paquet : src/ est ajouté au chemin par main.py et pytest
+
+[tool.ruff]
+line-length = 100
+src = ["src", "tests"]
+
+[tool.pytest.ini_options]
+testpaths = ["tests"]
+pythonpath = ["src"]

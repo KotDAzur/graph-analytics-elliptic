@@ -1,0 +1,12 @@
+seed: 42
+paths:
+  raw: data/raw
+  results: results
+centrality:
+  betweenness_k: 500   # pivots pour la betweenness approchée
+communities:
+  resolution: 1.0      # résolution de Louvain
+  n_sources: 50        # sources illicites par pas pour les distances BFS
+detection:
+  n_estimators: 200
+  train_max_step: 34   # entraînement sur les pas 1 à 34, test sur 35 à 49

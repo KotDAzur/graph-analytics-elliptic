@@ -1,0 +1,13 @@
+{
+  "date": "2026-11-09T14:41:27",
+  "seed": 42,
+  "git_commit": "HEAD",
+  "durations_s": {
+    "data": 0.14,
+    "graph": 0.94,
+    "structure": 1116.11,
+    "centrality": 32.6,
+    "communities": 11.52,
+    "detection": 5.69
+  }
+}

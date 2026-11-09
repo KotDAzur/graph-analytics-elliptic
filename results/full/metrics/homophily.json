@@ -1,0 +1,11 @@
+{
+  "edges_illicit_illicit": 998,
+  "edges_illicit_licit": 1696,
+  "edges_licit_licit": 33930,
+  "base_rate_illicit": 0.09760759384932566,
+  "illicit_neighbors_of_illicit": 0.5406283856988082,
+  "illicit_neighbors_of_licit": 0.024383230778078094,
+  "assortativity": 0.5162789776202755,
+  "mean_distance_from_illicit_to_licit": 10.470485053718908,
+  "mean_distance_from_illicit_to_illicit": 10.535669940696813
+}

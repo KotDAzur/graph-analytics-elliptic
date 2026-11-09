@@ -1,0 +1,16 @@
+seed: 42
+paths:
+  raw: data/raw
+  results: results
+centrality:
+  betweenness_k: 500
+communities:
+  resolution: 1.0
+  n_sources: 50
+detection:
+  n_estimators: 200
+  train_max_step: 34
+name: full
+time_steps:
+- 1
+- 49
