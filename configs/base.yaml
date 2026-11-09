@@ -1,4 +1,5 @@
 seed: 42
+permutations: 1000   # tirages des tests par permutation
 paths:
   raw: data/raw
   results: results
@@ -9,4 +10,5 @@ communities:
   n_sources: 50        # sources illicites par pas pour les distances BFS
 detection:
   n_estimators: 200
+  seeds: [42, 43, 44, 45, 46]   # graines de la forêt
   train_max_step: 34   # entraînement sur les pas 1 à 34, test sur 35 à 49

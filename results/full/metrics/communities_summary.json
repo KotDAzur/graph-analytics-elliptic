@@ -1,0 +1,21 @@
+{
+  "n_communities": 2816,
+  "n_with_illicit": 775,
+  "top5pct_n": 140,
+  "top5pct_illicit_share": 0.6204620462046204,
+  "n_majority_illicit": 193,
+  "majority_illicit_holds": 0.574037403740374,
+  "n_pure_illicit_min5": 18,
+  "shape_illicit_rich": {
+    "n": 147,
+    "median_size": 59.0,
+    "median_star_share": 0.20689655172413793,
+    "median_edges_per_tree": 1.010989010989011
+  },
+  "shape_other": {
+    "n": 1621,
+    "median_size": 79.0,
+    "median_star_share": 0.17105263157894737,
+    "median_edges_per_tree": 1.0136986301369864
+  }
+}

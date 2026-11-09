@@ -1,9 +1,35 @@
-# Data card : Elliptic Data Set
+# Data card: Elliptic Data Set
 
-- **Source :** Kaggle, Elliptic Data Set (ellipticco/elliptic-data-set).
-- **Article :** Weber et al. (2019), *Anti-Money Laundering in Bitcoin: Experimenting with Graph Convolutional Networks for Financial Forensics*, KDD Workshop.
-- **Licence :** à vérifier sur la page Kaggle.
-- **Contenu :** 203 769 transactions (nœuds), 234 355 flux de bitcoins (arêtes orientées), 49 pas de temps d'environ deux semaines.
-- **Étiquettes :** 4 545 illicites (environ 2 %), 42 019 licites, 157 205 inconnues. Dans le CSV : "1" = illicite, "2" = licite, "unknown".
-- **Fichiers :** `elliptic_txs_features.csv` (sans en-tête : txId, time_step, 165 caractéristiques), `elliptic_txs_classes.csv`, `elliptic_txs_edgelist.csv`.
-- **Limites :** étiquettes partielles (77 % inconnues), caractéristiques anonymisées, pas de montants ni de poids, dérive temporelle, aucune arête entre pas de temps.
+## Source
+- **Dataset:** Elliptic Data Set, Kaggle, <https://www.kaggle.com/datasets/ellipticco/elliptic-data-set> (version 1, last updated 2019-07-31; Kaggle owner: Claudio Bellei, Elliptic).
+- **Paper:** M. Weber, G. Domeniconi, J. Chen, D. K. I. Weidele, C. Bellei, T. Robinson, C. E. Leiserson, *Anti-Money Laundering in Bitcoin: Experimenting with Graph Convolutional Networks for Financial Forensics*, KDD'19 Workshop on Anomaly Detection in Finance, 2019 (arXiv:1908.02591).
+- Both citations are requested by the dataset page ("Elliptic, www.elliptic.co" and the paper above).
+
+## License
+Creative Commons Attribution-NonCommercial-NoDerivatives 4.0 International (CC BY-NC-ND 4.0), as stated on the Kaggle page.
+This project is an academic, non-commercial analysis. **The data are not redistributed in this repository**: `data/raw/` is git-ignored and the first pipeline step downloads the files from Kaggle. The repository only contains code and results computed from the data (metrics and figures in `results/`).
+
+## Content
+- 203,769 nodes (Bitcoin transactions) and 234,355 directed edges (flows of bitcoins between transactions), 49 time steps about two weeks apart.
+- Each time step is one connected component; no edge links two time steps (checked: 0 of 234,355).
+- Labels: 4,545 illicit (2.2%), 42,019 licit (20.6%), 157,205 unknown (77.1%).
+
+## Files (`data/raw/`)
+| File | Content |
+|---|---|
+| `elliptic_txs_features.csv` | **No header.** Column 0 = `txId`, column 1 = time step, then 165 anonymised features (690 MB). |
+| `elliptic_txs_classes.csv` | `txId`, `class`: `"1"` = illicit, `"2"` = licit, `"unknown"`. |
+| `elliptic_txs_edgelist.csv` | `txId1`, `txId2`: directed edge, read as a flow of bitcoins from `txId1` to `txId2`. |
+
+Features: 166 per node including the time step. The first 94 are local (time step, number of inputs/outputs, fee, output volume, averages over inputs/outputs...), the other 72 are aggregates of the one-hop neighbours (max, min, standard deviation, correlation). Their exact meaning is not disclosed (intellectual property).
+
+## Processing in this project
+- Labels are recoded at once into `illicit` / `licit` / `unknown` to avoid mixing up classes 1 and 2.
+- The graph is a simple, unweighted `networkx.DiGraph`: no duplicate edge and no self-loop in the file; there are no amounts, hence no weight.
+- No row is dropped; `time_steps` in `configs/experiments/*.yaml` selects the steps used.
+
+## Limitations
+- 77% of nodes are unlabelled; any label-based result uses labelled nodes only and may not represent the unknown ones.
+- Features are anonymised, with no amounts or timestamps inside a time step.
+- Illicit prevalence and behaviour change over time: the classifier collapses after time step 42 (see the report).
+- Nodes are transactions, not entities (wallets or users); the labels refer to the entity that created the transaction.

@@ -1,13 +1,8 @@
 {
-  "date": "2026-11-09T15:50:01",
+  "date": "2026-11-09T18:23:38",
   "seed": 42,
-  "git_commit": "fb12ec2b90e088b2041070e15e756fbc8ca485a0",
+  "git_commit": "7f0568aa569dff0420faf8566b9a5ae8a857b31c",
   "durations_s": {
-    "data": 0.45,
-    "graph": 1.03,
-    "structure": 1114.92,
-    "centrality": 32.47,
-    "communities": 11.49,
-    "detection": 5.7
+    "communities": 11.96
   }
 }

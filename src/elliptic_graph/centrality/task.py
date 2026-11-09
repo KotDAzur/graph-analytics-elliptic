@@ -19,3 +19,5 @@ def run(ctx: Context) -> None:
     out = ctx.dir("metrics")
     df.write_csv(out / "centrality.csv")
     process.by_label(df).sort("label").write_csv(out / "centrality_by_label.csv")
+    tests = process.permutation_tests(df, ctx.cfg["permutations"], ctx.seed)
+    tests.write_csv(out / "centrality_tests.csv")

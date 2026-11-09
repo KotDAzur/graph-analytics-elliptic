@@ -25,18 +25,22 @@ def run(ctx: Context) -> None:
         ctx.log.info("communities : pas %d, %d communautés, Q=%.3f", step, len(comms), q)
 
     out = ctx.dir("metrics")
-    pl.DataFrame(rows).with_columns(
-        illicit_share=pl.col("illicit") / (pl.col("illicit") + pl.col("licit"))
-    ).write_csv(out / "communities.csv")
+    cm = pl.DataFrame(rows)
+    process.with_shares(cm).write_csv(out / "communities.csv")
     pl.DataFrame(modularity).write_csv(out / "modularity.csv")
     pl.DataFrame(node_size).write_parquet(ctx.dir("data") / "community_size.parquet")
+    summary = process.concentration(cm)
+    (out / "communities_summary.json").write_text(json.dumps(summary, indent=2))
+    top = cm.sort("illicit", descending=True).head(10)
+    process.with_shares(top).write_csv(out / "top_communities.csv")
 
     d = pl.concat(distances).group_by("target").agg(pl.col("distance").mean())
-    homophily = process.edge_homophily(g) | {
-        f"mean_distance_from_illicit_to_{t}": v for t, v in d.iter_rows()
-    }
+    homophily = (
+        process.edge_homophily(g)
+        | {f"mean_distance_from_illicit_to_{t}": v for t, v in d.iter_rows()}
+        | {"assortativity_null": process.assortativity_null(g, ctx.cfg["permutations"], seed)}
+    )
     (out / "homophily.json").write_text(json.dumps(homophily, indent=2))
-
     draw_illicit_subgraph(g, ctx)
 
 

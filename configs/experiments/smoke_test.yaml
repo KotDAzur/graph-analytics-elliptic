@@ -1,8 +1,10 @@
 name: smoke_test
+permutations: 20
 time_steps: [1, 2]
 centrality:
   betweenness_k: 20
 communities:
   n_sources: 5
 detection:
+  seeds: [42, 43]
   train_max_step: 1   # entraînement sur le pas 1, test sur le pas 2

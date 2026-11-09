@@ -1,4 +1,5 @@
 seed: 42
+permutations: 1000
 paths:
   raw: data/raw
   results: results
@@ -9,6 +10,12 @@ communities:
   n_sources: 50
 detection:
   n_estimators: 200
+  seeds:
+  - 42
+  - 43
+  - 44
+  - 45
+  - 46
   train_max_step: 34
 name: full
 time_steps:

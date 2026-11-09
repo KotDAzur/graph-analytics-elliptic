@@ -7,5 +7,12 @@
   "illicit_neighbors_of_licit": 0.024383230778078094,
   "assortativity": 0.5162789776202755,
   "mean_distance_from_illicit_to_licit": 10.470485053718908,
-  "mean_distance_from_illicit_to_illicit": 10.535669940696813
+  "mean_distance_from_illicit_to_illicit": 10.535669940696813,
+  "assortativity_null": {
+    "observed": 0.516278977620275,
+    "null_mean": 0.09115817579842513,
+    "null_std": 0.007956075273484343,
+    "p_value": 0.000999000999000999,
+    "n_permutations": 1000
+  }
 }
