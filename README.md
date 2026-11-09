@@ -34,7 +34,7 @@ The full run takes about 20 minutes on a laptop, almost all of it for the exact 
 | `data` | download, label recoding, node and edge tables | `metrics/data_summary.json`, `labels_by_step.csv` |
 | `graph` | simple unweighted `DiGraph`, DAG check | `metrics/graph_summary.json` |
 | `structure` | weak and strong components, exact diameter and radius per time step (undirected), degrees | `components.csv`, `distances.csv`, `degrees.csv`, `figures/degrees.png`, `figures/diameter_by_step.png` |
-| `centrality` | in/out-degree, PageRank, betweenness (k = 500 pivots) per time step; permutation tests of the illicit vs licit gaps | `centrality.csv`, `centrality_by_label.csv`, `centrality_tests.csv` |
+| `centrality` | in/out-degree, PageRank, betweenness (k = 500 pivots) per time step; permutation tests of the illicit vs licit gaps | `centrality.csv` (per node, git-ignored: it contains the labels, see DATA_CARD), `centrality_by_label.csv`, `centrality_tests.csv` |
 | `communities` | Louvain per time step, illicit share and shape of each community, homophily with a permutation null model | `communities.csv`, `communities_summary.json`, `top_communities.csv`, `modularity.csv`, `homophily.json`, `figures/illicit_subgraph.png` |
 | `detection` | random forest, temporal split (train steps 1 to 34, test 35 to 49), 4 feature sets, 5 seeds | `detection_overall.csv` (mean and sd), `detection_seeds.csv`, `detection.csv` (per step), `figures/f1_by_step.png` |
 
