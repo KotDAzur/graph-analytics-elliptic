@@ -40,6 +40,6 @@ def run(ctx: Context) -> None:
     for name, d in per_step.group_by("feature_set", maintain_order=True):
         d = d.sort("step")
         ax.plot(d["step"], d["f1"], marker="o", label=name[0])
-    ax.set(xlabel="pas de temps (test)", ylabel="F1 classe illicite")
+    ax.set(xlabel="time step (test)", ylabel="F1 (illicit class)")
     ax.legend()
     fig.savefig(ctx.dir("figures") / "f1_by_step.png", dpi=150)

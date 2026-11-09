@@ -1,13 +1,13 @@
 {
-  "date": "2026-11-09T14:41:27",
+  "date": "2026-11-09T15:50:01",
   "seed": 42,
-  "git_commit": "HEAD",
+  "git_commit": "fb12ec2b90e088b2041070e15e756fbc8ca485a0",
   "durations_s": {
-    "data": 0.14,
-    "graph": 0.94,
-    "structure": 1116.11,
-    "centrality": 32.6,
-    "communities": 11.52,
-    "detection": 5.69
+    "data": 0.45,
+    "graph": 1.03,
+    "structure": 1114.92,
+    "centrality": 32.47,
+    "communities": 11.49,
+    "detection": 5.7
   }
 }

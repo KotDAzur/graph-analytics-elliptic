@@ -60,6 +60,6 @@ def draw_illicit_subgraph(g: nx.DiGraph, ctx: Context) -> None:
         width=0.4,
         ax=ax,
     )
-    ax.set_title(f"Pas {step} : transactions illicites (rouge) et leurs voisins")
+    ax.set_title(f"Step {step}: illicit transactions (red), licit (green), unknown (gray)")
     ax.axis("off")
     fig.savefig(ctx.dir("figures") / "illicit_subgraph.png", dpi=150)

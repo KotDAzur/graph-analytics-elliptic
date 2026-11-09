@@ -3,8 +3,8 @@
   "n_edges": 234355,
   "labels": {
     "unknown": 157205,
-    "illicit": 4545,
-    "licit": 42019
+    "licit": 42019,
+    "illicit": 4545
   },
   "edges_across_steps": 0
 }
